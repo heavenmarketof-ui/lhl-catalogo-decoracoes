@@ -8,15 +8,15 @@ from playwright.async_api import async_playwright
 
 ROOT="https://loquefacil.com/c/decoracoes4you"
 HERE=pathlib.Path(__file__).resolve().parents[1]
-PAT=re.compile(r"window\\.LHL_PRODUCTS\\s*=\\s*(\\[.*?\\])\\s*;",re.S)
+PAT=re.compile(r"window\.LHL_PRODUCTS\s*=\s*(\[.*?\])\s*;",re.S)
 m=PAT.search((HERE/"products.js").read_text())
 if not m: raise SystemExit("products.js não reconhecido")
 existing=json.loads(m.group(1))
 by_id={p["id"]:p for p in existing}
-PRICE=re.compile(r"R\\$\\s*([\\d.]+,\\d{2})")
-CODE=re.compile(r"\\b([A-Z]{1,4}[- ]?\\d{3,8})\\b")
+PRICE=re.compile(r"R\$\s*([\d.]+,\d{2})")
+CODE=re.compile(r"\b([A-Z]{1,4}[- ]?\d{3,8})\b")
 def number(s): return float(s.replace(".","").replace(",","."))
-def clean(s): return re.sub(r"\\s+"," ",s or "").strip()
+def clean(s): return re.sub(r"\s+"," ",s or "").strip()
 async def main():
   listing={}
   async with async_playwright() as pw:
@@ -63,7 +63,7 @@ async def main():
           failures.append({"url":url,"reason":"preço não identificado"});continue
         base=item["base"] if item else number(prices[0])
         if not (0<base<1000000):continue
-        name=item["name"] if item else (heading or clean(hint.split("\\n")[0]) or code)
+        name=item["name"] if item else (heading or clean(hint.split("\n")[0]) or code)
         imgs=await page.locator("img").evaluate_all("""els=>els.map(i=>({src:i.currentSrc||i.src,w:i.naturalWidth,h:i.naturalHeight}))""")
         gallery=[]
         for im in imgs:
@@ -83,7 +83,7 @@ async def main():
     await browser.close()
   # Nunca reduz os 20 existentes. Grava o resultado e um relatório para conferência.
   result=list(by_id.values())
-  (HERE/"products.js").write_text("window.LHL_PRODUCTS = "+json.dumps(result,ensure_ascii=False,indent=2)+";\\n")
+  (HERE/"products.js").write_text("window.LHL_PRODUCTS = "+json.dumps(result,ensure_ascii=False,indent=2)+";\n")
   (HERE/"photo-audit.json").write_text(json.dumps({"links_found":len(listing),"processed":processed,"new_products":created,"total":len(result),"with_images":sum(bool(p.get("image")) for p in result),"failures":failures[:100]},ensure_ascii=False,indent=2))
   print("IMPORTAÇÃO FINALIZADA",len(result),"produtos;",photos,"fotos principais;",len(failures),"falhas",flush=True)
 asyncio.run(main())
