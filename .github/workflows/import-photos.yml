@@ -1,6 +1,10 @@
 name: Importar fotos originais
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import_photos.py'
 permissions:
   contents: write
 concurrency:
@@ -9,7 +13,7 @@ concurrency:
 jobs:
   importar:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
