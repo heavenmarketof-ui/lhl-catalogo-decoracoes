@@ -1,5 +1,8 @@
 {
-  "processed": 20,
-  "with_images": 20,
-  "total": 20
+  "links_found": 1349,
+  "processed": 1348,
+  "new_products": 1328,
+  "total": 1348,
+  "with_images": 1348,
+  "failures": []
 }
