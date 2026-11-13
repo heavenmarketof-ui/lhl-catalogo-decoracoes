@@ -43,7 +43,34 @@ footer .site-contact{color:#f3c993}
 .dialog{border:1px solid #e8d6d1;box-shadow:0 25px 90px #19071155}
 .dialog h2{color:#64192f}.pill{color:#651f36}
 @media(max-width:600px){header{padding:14px}.brand{font-size:23px}.sub{font-size:9px}.hero{padding:30px 18px;border-radius:16px}.hero:after{width:200px;height:200px;right:-110px;top:-85px}.hero h1{font-size:32px}.hero p{font-size:14px}.toolbar{padding:12px}.grid{gap:12px}.card main{padding:11px}.card .price{font-size:18px}.card h2{font-size:15px}}
-.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}.header-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #edc9b9;color:#fff5e9;text-decoration:none;padding:11px 14px;border-radius:12px;font-size:13px;font-weight:650}.header-link:hover{background:#ffffff19}.header-actions .cartbtn{white-space:nowrap}@media(max-width:600px){.header-actions{gap:7px}.header-link{font-size:11px;padding:9px}.header-actions .cartbtn{font-size:11px}} </style></head><body><header><div class="topline"><div><div class="brand">LHL Festas</div><div class="sub">CATÁLOGO DE DECORAÇÕES</div></div><div class="header-actions"><a class="header-link" href="https://www.lhlfestas.com.br/catalogo">Catálogo de Capas</a><button class="cartbtn" id="openCart">Minha seleção (<span id="cartCount">0</span>)</button></div></div></header>
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}.header-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #edc9b9;color:#fff5e9;text-decoration:none;padding:11px 14px;border-radius:12px;font-size:13px;font-weight:650}.header-link:hover{background:#ffffff19}.header-actions .cartbtn{white-space:nowrap}@media(max-width:600px){.header-actions{gap:7px}.header-link{font-size:11px;padding:9px}.header-actions .cartbtn{font-size:11px}} 
+/* LHL identidade institucional — 2026 */
+:root{--wine:#651421;--cream:#fff8f0;--gold:#c89b58;--ink:#40272a}
+body{background:#fffaf6;color:var(--ink)}
+header{background:#651421;padding:15px max(3vw,18px);box-shadow:0 4px 18px #3e0b161c}
+.topline{max-width:1440px;margin:auto}
+.brand-lockup{display:flex;align-items:center;gap:15px;text-decoration:none;color:#fff8ee;min-width:0}
+.brand-logo{height:76px;width:76px;object-fit:contain;border-radius:50%;flex-shrink:0}
+.brand-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+.brand-copy strong{font-family:Georgia,serif;font-size:clamp(20px,2.5vw,30px);font-weight:500;line-height:1.15}
+.brand-copy small{color:#f2d5c9;font-size:11px;letter-spacing:.08em}
+.header-link{border-color:#d8a7a1;color:#fff5ee}
+.cartbtn{border-radius:999px}
+.wrap{max-width:1320px}
+.hero{background:linear-gradient(125deg,#f9e9e4 0%,#fffaf6 76%);border:1px solid #ead6cd;box-shadow:none;padding:38px clamp(22px,4vw,55px)}
+.hero h1{font-size:clamp(31px,4.4vw,55px);line-height:1.12;max-width:850px;color:#651421}
+.hero p{max-width:680px;color:#6d5555}
+.toolbar{border:1px solid #eadbd5;box-shadow:0 8px 28px #6514210b}
+.card{border-color:#eadbd5;border-radius:19px}
+.card .price{font-size:17px;color:#651421}
+.card button{border-radius:999px}
+@media(max-width:700px){
+header{padding:13px 17px}.topline{align-items:flex-start;gap:12px}
+.brand-logo{width:64px;height:64px}.brand-copy strong{font-size:20px}.brand-copy small{font-size:10px;letter-spacing:0}
+.header-actions{width:100%;justify-content:space-between}.header-link,.cartbtn{flex:1;text-align:center;font-size:12px;padding:12px 10px}
+.hero{padding:25px 22px}.hero h1{font-size:clamp(29px,7vw,39px)}.hero p{font-size:14px}
+}
+</style></head><body><header><div class="topline"><div><a class="brand-lockup" href="https://www.lhlfestas.com.br/" aria-label="LHL Festas — página inicial"><img class="brand-logo" src="https://raw.githubusercontent.com/heavenmarketof-ui/lhl-festas/main/src/assets/lhl/logo/logo-01.png" alt="Logotipo oficial LHL Festas"><span class="brand-copy"><strong>Catálogo de Decorações</strong><small>Inspirações para momentos especiais</small></span></a></div><div class="header-actions"><a class="header-link" href="https://www.lhlfestas.com.br/catalogo">Catálogo de Capas</a><button class="cartbtn" id="openCart">Minha seleção (<span id="cartCount">0</span>)</button></div></div></header>
 <div class="wrap"><section class="hero"><h1>A festa dos seus sonhos começa aqui</h1><p>Explore nosso catálogo de decorações, encontre o tema perfeito e solicite seu orçamento com a equipe LHL Festas.</p></section>
 <div class="toolbar"><input id="search" type="search" placeholder="Buscar tema ou decoração..." aria-label="Buscar decoração"><select id="category" aria-label="Filtrar categoria"><option value="">Todas as categorias</option></select></div><div class="controls"><p id="count"></p><select id="sort" aria-label="Ordenar produtos"><option value="default">Mais recentes</option><option value="az">Nome A–Z</option></select></div><section id="grid" class="grid" aria-live="polite"></section>
 <div id="pagination" class="controls" style="justify-content:center;margin:26px 0"></div><p class="notice">Os valores são informados sob consulta. A equipe LHL Festas prepara uma proposta personalizada conforme a decoração, a data e o local da festa.</p><div class="adminnote" id="adminEntry" hidden><button id="openAdmin">Editor local do catálogo</button></div></div><div class="modal" id="modal"><div class="dialog" id="dialog"></div></div><footer><a href="https://www.lhlfestas.com.br/" style="color:#f3c993">Site oficial</a> · <a href="https://www.lhlfestas.com.br/catalogo" style="color:#f3c993">Catálogo de Capas</a><br><strong>LHL Festas</strong> · Decorações personalizadas · ABC Paulista<br><a class="site-contact" href="https://wa.me/5511925543380" target="_blank" rel="noopener noreferrer">Atendimento pelo WhatsApp: (11) 92554-3380</a></footer>
