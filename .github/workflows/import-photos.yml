@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: import-photos-main
+  cancel-in-progress: false
 jobs:
   importar:
     runs-on: ubuntu-latest
@@ -22,5 +25,14 @@ jobs:
           git add products.js photo-audit.json
           if ! git diff --cached --quiet; then
             git commit -m "Importa fotografias originais verificadas por código"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort; echo "Conflito real: revisão manual necessária"; exit 1; }
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              sleep 3
+            done
+            echo "Não foi possível publicar após três tentativas"
+            exit 1
           fi
