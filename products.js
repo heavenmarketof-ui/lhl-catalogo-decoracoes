@@ -3,7 +3,14 @@ window.LHL_PRODUCTS = [
     "id": "K-8579",
     "name": "Kit Clean Mesa Com Balão",
     "base": 249,
-    "category": "Adulto"
+    "category": "Adulto",
+    "image": "https://storage.loquefacil.com/photos/01985b0f-b7b0-707e-b94c-526a0a523e7b/f19df006-6bef-40df-8e3c-05ffd0928c30.jpg",
+    "gallery": [
+      "https://storage.loquefacil.com/photos/01985b0f-b7b0-707e-b94c-526a0a523e7b/f19df006-6bef-40df-8e3c-05ffd0928c30.jpg",
+      "https://storage.loquefacil.com/photos/01985b0f-b7b0-707e-b94c-526a0a523e7b/ee569a0f-820a-48ed-8020-cb4d276b8682.jpg",
+      "https://storage.loquefacil.com/photos/01985b0f-b7b0-707e-b94c-526a0a523e7b/0d89495d-18a2-4588-b20e-576a70fc58ec.jpg",
+      "https://storage.loquefacil.com/photos/01985b0f-b7b0-707e-b94c-526a0a523e7b/3b5b06d5-f181-41fa-8dec-aacab30b83c0.jpg"
+    ]
   },
   {
     "id": "K-4899",
